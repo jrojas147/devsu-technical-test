@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--table-title-color);
+}
+
+th {
+    font-family: var(--font-santander-text);
+    text-align: center;
+    border: var(--table-border);
+    padding: 8px;
+    color: var(--table-title-color);
+}
+
+td {
+    font-family: var(--font-santander-text);
+    text-align: center;
+    border: var(--table-border);
+    padding: 8px;
+    color: var(--table-container-color);
+}
+
+thead {
+    background: var(--table-head-color);
+}
+
+.description-table {
+    margin: 20px;
+}
+
+.description-table-hide {
+    display: none;
+}

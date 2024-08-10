@@ -8,19 +8,20 @@ import { FooterComponent } from './view/shared/footer/footer.component';
 import { ProdutsComponent } from './view/produts/produts.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TableModule } from './components/table/table.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProdutsComponent,
-    TableComponent
+    ProdutsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,20 @@
+<table>
+    <caption [ngClass]="{'description-table-hide': description === '', 'description-table': description !== ''}" class="description-table">{{description}}</caption>
+    <thead>
+        <tr>
+            <th *ngFor="let col of columns" [id]="id">
+                <ng-container *ngIf="!col.headerTemplate">{{col.header}}</ng-container>
+                <ng-template *ngIf="col.headerTemplate" [ngTemplateOutlet]="col.headerTemplate" [ngTemplateOutletContext]="{ $implicit: { header: col.header } }"></ng-template>
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let row of items | slice:((currentPage*pageSize)-pageSize):(pageSize*currentPage); let i = index">
+        <tr>
+            <td *ngFor="let col of columns">
+                <ng-container *ngIf="!col.bodyTemplate">{{getData(col.value.split('.'), row)}}</ng-container>
+                <ng-template *ngIf="col.bodyTemplate" [ngTemplateOutlet]="col.bodyTemplate" [ngTemplateOutletContext]="{ $implicit: { value: getData(col.value.split('.'), row) }, row: row }">
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>

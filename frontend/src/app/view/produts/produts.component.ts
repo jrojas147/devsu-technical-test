@@ -9,6 +9,32 @@ import { ProductService } from 'src/app/services/product-services/product.servic
 })
 export class ProdutsComponent implements OnInit {
 
+  dataProduct = [
+        {
+            id: "dos",
+            name: "Cuenta de ahorros",
+            description: "Cuenta de ahorrros nomina",
+            logo: "textoreferencia",
+            date_release: "2025-01-01",
+            date_revision: "2025-01-01"
+        },
+        {
+            id: "cuatro",
+            name: "Cuenta de nomina",
+            description: "Cuenta de ahorrros nomina",
+            logo: "textoreferencia",
+            date_release: "2025-01-01",
+            date_revision: "2025-01-01"
+        },
+        {
+            id: "cinco",
+            name: "Tarjeta de credito",
+            description: "Membresia VISA",
+            logo: "textoreferencia",
+            date_release: "2025-01-01",
+            date_revision: "2025-01-01"
+        }
+    ]
 
   data : any;
   constructor(private productService: ProductService) { 

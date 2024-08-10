@@ -4,5 +4,15 @@
     </div>
     <div class="content-table">
 
+        <app-table 
+            [items]="dataProduct" 
+            pageSize='3' 
+            currentPage="1">
+                   <app-column value="logo" header="Logo"></app-column>
+                   <app-column value="name" header="Nombre de producto"></app-column>
+                   <app-column value="date_release" header="Fecha de liberacion"></app-column>
+                   <app-column value="date_revision" header="Fecha de restauracion"></app-column>
+               </app-table>
+
     </div>
 </div>
