@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Config } from 'src/app/utils/intex';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,13 @@ export class UtilService {
    * @author Joan Andres Rojas Ramirez
    */
   public buildRequest(endpoint: any, method: string, data?: any) {
+    debugger
+    const headers = Config.options;
+    headers.headers.set('Access-Control-Allow-Origin', 'http://localhost:3002')
     switch (method) {
       case 'get':
         const options = {
+          headers: headers.headers,
           params: data || null
         };
         return this.http.get<any>(endpoint);
