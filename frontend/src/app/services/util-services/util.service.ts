@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Config } from 'src/app/utils/intex';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class UtilService {
    * @returns respuesta de servicio
    * @author Joan Andres Rojas Ramirez
    */
-  public buildRequest(endpoint: any, method: string, data?: any) {
+  public buildRequest(endpoint: any, method: string, data?: any): Observable<any> {
     const headers = Config.options;
     headers.headers.set('Access-Control-Allow-Origin', 'http://localhost:3002')
     switch (method) {
@@ -31,25 +32,25 @@ export class UtilService {
           headers: headers.headers,
           params: data || null
         };
-        return this.http.get<any>(endpoint);
+        return this.http.get<any>(endpoint, options);
 
       case 'post':
         return this.http.post<any>(endpoint, data);
 
       case 'put':
-        return this.http.put<any>(endpoint.url, data);
+        return this.http.put<any>(endpoint, data);
 
       case 'delete':
         if (data) {
           const customHeader = {
             body: data
           };
-          return this.http.request('delete', endpoint, customHeader);
+          return this.http.request<any>('delete', endpoint, customHeader);
         }
         return this.http.delete<any>(endpoint);
-        
+
       default:
-        return {};
+        return new Observable<any>();
     }
   }
 
