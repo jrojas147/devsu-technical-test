@@ -12,6 +12,8 @@ import { TableModule } from './components/table/table.module';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PaginationModule } from './components/pagination/pagination.module';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalModule } from './components/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     TableModule,
     PaginationModule,
-    FormsModule
+    FormsModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
