@@ -9,6 +9,9 @@ import { ProdutsComponent } from './view/produts/produts.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './components/table/table.module';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { PaginationModule } from './components/pagination/pagination.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { TableModule } from './components/table/table.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    PaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

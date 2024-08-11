@@ -20,6 +20,7 @@
     "@angular/router": "^14.1.0",
     "frontend": "file:",
     "rxjs": "~7.5.0",
+    "swiper": "^11.1.9",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

@@ -1,3 +1,6 @@
+@import '../styles.scss';
+
+
 // * {
 //     @include small() {
 //         background-color: azure;
@@ -22,6 +25,8 @@
 
 .content-page{
     height: auto;
+    background-color: $colorBackgroundSearch;
+    padding: 0px 70px;
 }
 
 .content-footer{

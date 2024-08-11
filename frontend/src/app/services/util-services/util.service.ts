@@ -23,7 +23,6 @@ export class UtilService {
    * @author Joan Andres Rojas Ramirez
    */
   public buildRequest(endpoint: any, method: string, data?: any) {
-    debugger
     const headers = Config.options;
     headers.headers.set('Access-Control-Allow-Origin', 'http://localhost:3002')
     switch (method) {

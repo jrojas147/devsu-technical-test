@@ -1,27 +1,32 @@
+@import '../../../styles.scss';
+
+
 table {
     width: 100%;
     border-collapse: collapse;
-    color: var(--table-title-color);
+    color: $colorWhiteGeneral;
 }
 
-th {
-    font-family: var(--font-santander-text);
-    text-align: center;
-    border: var(--table-border);
+th {//encabezados de la tabla
+    text-align: initial;
     padding: 8px;
-    color: var(--table-title-color);
+    color: #747679;
 }
 
 td {
-    font-family: var(--font-santander-text);
-    text-align: center;
-    border: var(--table-border);
+    text-align: initial;
     padding: 8px;
-    color: var(--table-container-color);
+    color:gray;
 }
 
 thead {
-    background: var(--table-head-color);
+    background: #F8FAFC;
+    height: 60px;
+}
+
+tbody{
+    background: white;
+    height: 50px;
 }
 
 .description-table {

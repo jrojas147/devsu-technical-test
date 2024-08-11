@@ -1,0 +1,23 @@
+@import '../../../styles.scss';
+
+
+.content-component{
+    background-color: #F4F6FA;
+}
+
+.content-search{
+    align-content: flex-end;
+    height: 120px;
+}
+
+#searchInput{
+    margin: 0 0 10px 0;
+    border: 1px solid #DCDCDE;
+    border-radius: 2px;
+    height: 25px;
+}
+
+.content-table{
+    background-color: white;
+    padding: 20px;
+}
