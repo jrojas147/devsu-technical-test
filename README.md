@@ -6,3 +6,7 @@ Pendiente:
 
 Loading 
 pruebas unitarias
+
+
+ng test --no-watch --code-coverage
+
