@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './view/shared/header/header.component';
-import { FooterComponent } from './view/shared/footer/footer.component';
-import { ProdutsComponent } from './view/produts/produts.component';
+import { HeaderComponent } from './screen/shared/header/header.component';
+import { FooterComponent } from './screen/shared/footer/footer.component';
+import { ProdutsComponent } from './screen/produts/produts.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './components/table/table.module';
@@ -14,15 +14,15 @@ import { PaginationModule } from './components/pagination/pagination.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalModule } from './components/modal/modal.module';
-import { RegisterProductComponent } from './view/register-product/register-product.component';
+import { RegisterProductComponent } from './screen/register-product/register-product.component';
+import { ProductsModule } from './screen/produts/products.module';
+import { RegisterProductModule } from './screen/register-product/register-product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    ProdutsComponent,
-    RegisterProductComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +32,9 @@ import { RegisterProductComponent } from './view/register-product/register-produ
     PaginationModule,
     FormsModule,
     ModalModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProductsModule,
+    RegisterProductModule
  
   ],
   providers: [],

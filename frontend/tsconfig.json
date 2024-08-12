@@ -16,6 +16,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "@screen/*": ["./src/app/screen/*"],
+    },
     "target": "es2020",
     "module": "es2020",
     "lib": [

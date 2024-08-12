@@ -85,13 +85,11 @@ export class RegisterProductComponent  {
 
   checkIdAccount(idAccount: string) {
     this.productService.verifyAccount(idAccount).subscribe((response: boolean) => {
-      debugger;
       this.existAccount = response;
     });
   }
 
   saveRegistry() {
-    debugger;
     const dataForm = this.formAccounts.getRawValue();
 
     if (this.idAccount) {

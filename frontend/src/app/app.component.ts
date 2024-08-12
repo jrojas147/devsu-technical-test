@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './view/shared/header/header.component';
 import { ModalService } from './services/modal-services/modal.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class AppComponent {
 
 
   modal(){
-    debugger
     this.modalService.open('testmodal');
   }
 
