@@ -8,12 +8,6 @@ const routes: Routes = [
     loadChildren: () => import('@screen/products/products.module').then((m) => m.ProductsModule),
     path: 'products',
   },
-
-
-  // {
-  //   loadChildren: () => import('@screen/produts/produts.module').then((m) => m.ProductsModule),
-  //   path: 'products',
-  // },
   {
     loadChildren: () => import('@screen/register-product/register-product.module').then((m) => m.RegisterProductModule),
     path: 'registerProduct',

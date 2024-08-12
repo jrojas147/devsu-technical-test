@@ -33,7 +33,7 @@ import { ProductsModule } from '@screen/products/products.module';
     PaginationModule,
     ModalModule,
     RegisterProductModule,
-    ProductsModule
+    ProductsModule,
  
   ],
   providers: [
