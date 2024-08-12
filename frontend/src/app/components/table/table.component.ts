@@ -98,10 +98,12 @@ export class TableComponent implements OnChanges {
    * @param data valores de la fila que se edita o elimina
    */
   public actionBtn(action: string, data?: AccountsModel) {
-    this.emmitAction.emit({
-      action: action,
-      data: data,
-    });
+    if (action === 'add' || action === 'edit') {
+      this.emmitAction.emit({
+        action: action,
+        data: data,
+      });
+    }
 
     if (action === 'delete') {
       this.openModal(data);

@@ -67,7 +67,6 @@ export class ProductsComponent implements OnInit {
     }
 
     if (event.action === 'delete') {
-      debugger
       this.productService
         .deleteAccounts(event.data)
         .subscribe((response: AccountsListModel) => {
