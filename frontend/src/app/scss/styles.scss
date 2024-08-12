@@ -28,3 +28,153 @@ body {
   border-radius: 5px;
   font-size: 15px;
 }
+
+//Estilos formularios
+.form-controls {
+  display: grid;
+  margin: 0 10px 10px;
+
+  .form-label {
+    margin: 8px 0;
+    font-weight: 500;
+  }
+}
+
+
+
+//Botones
+
+button {
+  border: none;
+  border-radius: 4px;
+  color: #132748;
+  cursor: pointer;
+  padding: 14px 24px;
+  font-weight: 600;
+  margin: 10px;
+}
+
+button:disabled {
+  cursor: revert;
+  opacity: 0.6;
+}
+
+.action-button {
+  display: flex;
+  justify-content: center;
+  margin: 9px;
+}
+
+.primary-button {
+  background: #e9e971;
+}
+
+.secondary-button {
+  background: #ecedf3
+}
+
+
+//header
+.header {
+  background-color: #ffff;
+  text-align: center;
+  padding: 24px 0;
+
+  img {
+    width: 130px;
+  }
+}
+
+
+
+//input
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #979797;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:disabled {
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+}
+
+.error-field {
+  color: red;
+  font-size: 12px;
+  margin: 9px 0;
+}
+
+.ng-untouched .ng-pristine .ng-invalid {
+  border: 1px solid red;
+}
+
+.ng-pristine .ng-invalid .ng-touched {
+  border: 1px solid white;
+}
+
+input:invalid {
+  background-color: ivory;
+  border: none;
+  outline: 2px solid red;
+  border-radius: 5px;
+}
+
+
+////////////////////
+/// /*************/
+/* mechanism */
+/*************/
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.flex-row > * {
+  flex: 1; /* allow children to grow when space available */
+
+  /* [OPTIONAL] set a 'min-width' if you want to force some wrapping */
+  min-width: 7.5rem; /* max 3*120px columns on a 360px device */
+}
+
+.col-1 {
+  flex-basis: 8.33%;
+}
+.col-2 {
+  flex-basis: 16.66%;
+}
+.col-3 {
+  flex-basis: 25%;
+}
+.col-4 {
+  flex-basis: 33.33%;
+}
+.col-5 {
+  flex-basis: 41.66%;
+}
+.col-6 {
+  flex-basis: 50%;
+}
+.col-7 {
+  flex-basis: 58.33%;
+}
+.col-8 {
+  flex-basis: 66.66%;
+}
+.col-9 {
+  flex-basis: 75%;
+}
+.col-10 {
+  flex-basis: 83.33%;
+}
+.col-11 {
+  flex-basis: 91.66%;
+}
+.col-12 {
+  flex-basis: 100%;
+}
