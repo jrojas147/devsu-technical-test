@@ -1,0 +1,113 @@
+<section class="registry">
+
+    <div class="title">
+      <h1>Formulario de Registro - {{ idAccount ? 'Editar' : 'Nuevo' }} </h1>
+    </div>
+    <div class="body-form">
+      <form [formGroup]="formAccounts">
+        <div class="flex-row">
+          <div class="col-2">
+            <div class="form-controls">
+              <label class="form-label" for="">ID</label>
+              <input id="id" name="id" formControlName="id" type="text">
+  
+              <div *ngIf="formAccounts.controls['id'].errors && formAccounts.controls['id'].touched" class="error-field">
+                ID no válido!
+              </div>
+  
+              <div *ngIf="existAccount && formAccounts.controls['id'].touched" class="error-field">
+                La cuenta ya existe!
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-controls">
+              <label class="form-label" for="">Nombre</label>
+              <input id="name" formControlName="name" type="text">
+  
+              <div *ngIf="formAccounts.controls['name'].errors && formAccounts.controls['name'].touched"
+                class="error-field">
+                El campo es requerido
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flex-row">
+          <div class="col-2">
+            <div class="form-controls">
+              <label class="form-label" for="">Descripción</label>
+              <input id="description" name="description" formControlName="description" type="text">
+  
+              <div *ngIf="formAccounts.controls['description'].errors && formAccounts.controls['description'].touched"
+                class="error-field">
+                El campo es requerido
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-controls">
+              <label class="form-label" for="">Logo</label>
+              <input id="logo" formControlName="logo" type="text">
+  
+              <div *ngIf="formAccounts.controls['logo'].errors && formAccounts.controls['logo'].touched"
+                class="error-field">
+                El campo es requerido
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flex-row">
+          <div class="col-2">
+            <div class="form-controls">
+              <label class="form-label" for="">Fecha de Liberación</label>
+              <input id="date_release" name="date_release" formControlName="date_release" type="text">
+  
+              <div *ngIf="formAccounts.controls['date_release'].errors && formAccounts.controls['date_release'].touched"
+                class="error-field">
+                El campo es requerido
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-controls">
+              <label class="form-label" for="">Fecha de Reestructuración</label>
+              <input id="date_revision" formControlName="date_revision" type="text">
+  
+            </div>
+          </div>
+        </div>
+  
+        <div class="action-button">
+          <button class="secondary-button" (click)="backUrl()">Regresar</button>
+          <button
+            *ngIf="idAccount; else elseDiv"
+            class="primary-button"
+            [disabled]="formAccounts.status === 'INVALID'"
+            (click)="saveRegistry()"
+          >Editar</button>
+          <ng-template #elseDiv>
+            <button
+            class="primary-button"
+            [disabled]="formAccounts.status === 'INVALID' && existAccount"
+            (click)="saveRegistry()"
+          >Guardar</button>
+          </ng-template>
+        </div>
+  
+        
+  
+      </form>
+  
+  
+  
+  
+      <!-- <div class="flex-row">
+        <div class="col-1">col 1</div>
+        <div class="col-2">col 2</div>
+        <div class="col-9">col 9</div>
+      </div> -->
+    </div>
+  
+  </section>

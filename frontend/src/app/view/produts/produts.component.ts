@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product-services/product.service';
 
 
@@ -14,7 +15,9 @@ export class ProdutsComponent implements OnInit {
 
 
   dataProduct: any;
-  constructor(private productService: ProductService) {
+  constructor(
+    private productService: ProductService,
+    private router: Router) {
   }
 
    ngOnInit(): void {
@@ -25,7 +28,7 @@ export class ProdutsComponent implements OnInit {
    * Metodo que permite consultar todos los productos
    */
   getProducts() {
-    this.productService.getAllProducts()
+    this.productService.getAccounts()
       .subscribe((response: any) => {
         this.dataProduct = response.data
       }, error => {
@@ -42,10 +45,7 @@ export class ProdutsComponent implements OnInit {
     }
   }
 
-
-
-
-
-
-
+  public addProduct():void{
+    this.router.navigateByUrl('/registerProduct');
+  }
 }

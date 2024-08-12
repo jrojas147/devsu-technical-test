@@ -9,7 +9,10 @@ httpOptions.headers
     .set('Accept', 'application/json; text/plain');
 
 const Config = {
+  api: {
+  baseUrl: environment.host,
   options: httpOptions,
+  }
 };
 
 export { Config };

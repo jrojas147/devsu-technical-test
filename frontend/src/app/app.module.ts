@@ -11,16 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './components/table/table.module';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PaginationModule } from './components/pagination/pagination.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalModule } from './components/modal/modal.module';
+import { RegisterProductComponent } from './view/register-product/register-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProdutsComponent
+    ProdutsComponent,
+    RegisterProductComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,9 @@ import { ModalModule } from './components/modal/modal.module';
     TableModule,
     PaginationModule,
     FormsModule,
-    ModalModule
+    ModalModule,
+    ReactiveFormsModule
+ 
   ],
   providers: [],
    bootstrap: [AppComponent]

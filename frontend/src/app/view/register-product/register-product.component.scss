@@ -1,0 +1,32 @@
+ @import '../../../styles.scss';
+
+
+
+
+.registry {
+    background: #ffff;
+    border-radius: 6px;
+    margin: 100px 20% auto;
+  
+    .title {
+      text-align: center;
+    }
+  
+    .body-form {
+      border-top: 1px solid;
+      padding: 20px 30px;
+    }
+  }
+  
+
+
+  .form-controls {
+    display: grid;
+    margin: 0 10px 10px;
+  
+    .form-label {
+      margin: 8px 0;
+      font-weight: 500;
+    }
+  }
+  

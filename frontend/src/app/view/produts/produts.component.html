@@ -1,10 +1,18 @@
 <div class="content-component">
     <div class="content-search">
-        <input
+        <div class="content-inputSearch">
+            <input
             id="searchInput" 
             (blur)='searchProduct()' 
             [(ngModel)]="valueSearch"
             />
+
+        </div>
+        <div class="content-buttonAdd">
+            <button id="buttonYellow" (click)="addProduct()">
+                Agregar
+            </button>
+        </div>
     </div>
     <div class="content-table">
         <app-table [items]="dataProduct" pageSize='8' currentPage="1">
