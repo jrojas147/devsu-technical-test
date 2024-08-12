@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product-services/product.service';
 
-
 @Component({
-  selector: 'app-produts',
-  templateUrl: './produts.component.html',
-  styleUrls: ['./produts.component.scss']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
-export class ProdutsComponent implements OnInit {
+export class ProductsComponent implements OnInit {
+
 
 
   valueSearch: any;

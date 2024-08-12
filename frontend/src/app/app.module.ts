@@ -5,18 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './screen/shared/header/header.component';
 import { FooterComponent } from './screen/shared/footer/footer.component';
-import { ProdutsComponent } from './screen/produts/produts.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './components/table/table.module';
 import { PaginationModule } from './components/pagination/pagination.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from './components/modal/modal.module';
-import { ProductsModule } from './screen/produts/products.module';
 import { RegisterProductModule } from './screen/register-product/register-product.module';
 import { ModalService } from './services/modal-services/modal.service';
 import { ProductService } from './services/product-services/product.service';
 import { UtilService } from './services/util-services/util.service';
+import { ProductsComponent } from './screen/products/products.component';
+import { ProductsModule } from '@screen/products/products.module';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +32,8 @@ import { UtilService } from './services/util-services/util.service';
     TableModule,
     PaginationModule,
     ModalModule,
-    ProductsModule,
-    RegisterProductModule
+    RegisterProductModule,
+    ProductsModule
  
   ],
   providers: [
