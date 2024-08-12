@@ -1,39 +1,25 @@
 @import '../styles.scss';
 
 
-    // * {
-    //     @include small() {
-    //         background-color: azure;
-    //     }
-    //     @include medium() {
-    //         background-color: rgb(20, 183, 183);
-    //     }
-    //     @include large() {
-    //         background-color: rgb(44, 58, 205);
-    //     }
-    //     @include extraLarge() {
-    //         background-color: rgb(70, 208, 28);
-    //     }
-    //     @include extraExtraLarge() {
-    //         background-color: rgb(151, 13, 121);
-    //     }
-    // }
-
-.content-header{
+.content-header {
     height: auto;
 }
 
-.content-page{
+.content-page {
     height: auto;
     background-color: $colorBackgroundSearch;
-    padding: 50px 70px;
-
+    padding: 25px 50px;
+    @include small() {
+        padding: 0;
+    }
+    @include medium() {
+        padding: 0;
+    }
 }
 
-.content-footer{
+.content-footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
-}
 
+}
