@@ -17,31 +17,31 @@ export class ProductsComponent implements OnInit {
   public columns: ColumnsTable[] = [
     {
       label: 'logo',
-      title: 'Logo'
+      title: 'Logo',
     },
     {
       label: 'name',
-      title: 'Nombre del producto'
+      title: 'Nombre del producto',
     },
     {
       label: 'description',
-      title: 'Descripción'
+      title: 'Descripción',
     },
     {
       label: 'date_release',
-      title: 'Fecha de liberación'
+      title: 'Fecha de liberación',
     },
     {
       label: 'date_revision',
-      title: 'Fecha de reestrucutación'
-    }
-  ]
+      title: 'Fecha de reestrucutación',
+    },
+  ];
 
   constructor(
     private productService: ProductService,
     private router: Router,
     private toastService: ToastService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     console.log('Entra');
@@ -62,17 +62,19 @@ export class ProductsComponent implements OnInit {
     if (event.action === 'add') {
       this.router.navigateByUrl('/registry');
     }
-    
+
     if (event.action === 'edit') {
       this.router.navigateByUrl('/registry/' + event.data.id);
     }
 
     if (event.action === 'delete') {
-      this.productService.deleteAccounts(event.data).subscribe((response: AccountsListModel) => {        
-        this.toastService.show('Exitoso', response.message || '');
+      this.productService
+        .deleteAccounts(event.data)
+        .subscribe((response: AccountsListModel) => {
+          this.toastService.show('Exitoso', response.message || '');
 
-        this.loadList();
-      });
+          this.loadList();
+        });
     }
   }
 }

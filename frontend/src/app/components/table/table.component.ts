@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ColumnsTable } from './table.model';
 import { AccountsModel } from 'src/app/models/accounts.model';
 
@@ -9,7 +9,7 @@ import { AccountsModel } from 'src/app/models/accounts.model';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit   {
+export class TableComponent implements OnChanges   {
 
   @Output() emmitAction: EventEmitter<any> = new EventEmitter<any>();
   @Input() columns: ColumnsTable[];
@@ -28,9 +28,11 @@ export class TableComponent implements OnInit   {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.filteredProductos = this.dataRow;
-    this.calculateTotalPages();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['dataRow'] && changes['dataRow'].currentValue) {
+      this.filteredProductos = this.dataRow;
+      this.calculateTotalPages();
+    }
   }
 
   public calculateTotalPages() {

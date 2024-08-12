@@ -6,7 +6,7 @@ const routes: Routes = [
 
   {
     loadChildren: () => import('@screen/products/products.module').then((m) => m.ProductsModule),
-    path: 'products',
+    path: '',
   },
   {
     loadChildren: () => import('@screen/register-product/register-product.module').then((m) => m.RegisterProductModule),
@@ -20,7 +20,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      enableTracing: false,
+      scrollPositionRestoration: 'enabled',
+      useHash: true
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

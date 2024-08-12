@@ -52,9 +52,20 @@
         </tbody>
     </table>
 
-    <!-- Contenedor del paginador y selector -->
-    <div class="pagination-container">
-        <!-- Selector de ítems por página -->
+    <div class="empty-data" *ngIf="dataRow.length === 0">No existen registros</div>
+
+    <div *ngIf="dataRow.length > 0" class="pagination-container">
+        <!-- Paginador -->
+        <div class="paginator">
+            <button (click)="previousPage()" class="primary-button" [disabled]="currentPage === 1">
+                ◄
+            </button>
+            <span>Página {{ currentPage }} de {{ totalPages }}</span>
+            <button (click)="nextPage()" class="primary-button" [disabled]="currentPage === totalPages">
+                ►
+            </button>
+        </div>
+
         <div class="items-per-page">
             <label for="itemsPerPage">Mostrar:</label>
             <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange($event)">
@@ -62,17 +73,6 @@
                     {{ option }}
                 </option>
             </select>
-        </div>
-
-        <!-- Paginador -->
-        <div class="paginator">
-            <button (click)="previousPage()" [disabled]="currentPage === 1">
-                ◄ Anterior
-            </button>
-            <span>Página {{ currentPage }} de {{ totalPages }}</span>
-            <button (click)="nextPage()" [disabled]="currentPage === totalPages">
-                Siguiente ►
-            </button>
         </div>
     </div>
 </section>

@@ -1,12 +1,12 @@
 <section class="home">
-    <div class="body-home">
-  
-      <app-table
-        *ngIf="listAccounts.length > 0"
-        [columns]="columns"
-        [dataRow]="listAccounts"
-        (emmitAction)="emitTable($event)"
-      ></app-table>
-    </div>
-  </section>
-  
+  <div class="body-home">
+
+    <app-table
+      [columns]="columns"
+      [dataRow]="listAccounts"
+      (emmitAction)="emitTable($event)"
+    ></app-table>
+  </div>
+</section>
+
+<app-toast></app-toast>
