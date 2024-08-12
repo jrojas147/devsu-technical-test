@@ -1,25 +1,78 @@
-<table>
-    <caption [ngClass]="{'description-table-hide': description === '', 'description-table': description !== ''}" class="description-table">{{description}}</caption>
-    <thead>
-        <tr>
-            <th *ngFor="let col of columns" [id]="id">
-                <ng-container *ngIf="!col.headerTemplate">{{col.header}}</ng-container>
-                <ng-template *ngIf="col.headerTemplate" [ngTemplateOutlet]="col.headerTemplate" [ngTemplateOutletContext]="{ $implicit: { header: col.header } }"></ng-template>
-            </th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let row of items | slice:((currentPage*pageSize)-pageSize):(pageSize*currentPage); let i = index">
-        <tr>
-            <td *ngFor="let col of columns">
-                <ng-container *ngIf="!col.bodyTemplate">{{getData(col.value.split('.'), row)}}</ng-container>
-                <ng-template *ngIf="col.bodyTemplate" [ngTemplateOutlet]="col.bodyTemplate" [ngTemplateOutletContext]="{ $implicit: { value: getData(col.value.split('.'), row) }, row: row }">
-                </ng-template>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="flex-row">
+    <div class="col-2">
+        <div class="form-controls">
+            <input id="filterCharacters" name="filterCharacters" placeholder="Search..." [(ngModel)]="filterCharacters"
+                type="text" (ngModelChange)="applyFilter()" />
+        </div>
+    </div>
+    <div class="col-2 buton-add">
+        <button class="primary-button" style="margin: 0;" (click)="actionBtn('add')">
+            Agregar
+        </button>
+    </div>
+</div>
+<section class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns">{{ column.title }}</th>
 
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of paginatedItems">
+                <td>
+                    <div class="container-img">
+                        <img src="assets/img/perfil.png" class="img-fluid height" alt="" />
+                    </div>
+                </td>
+                <td>
+                    {{ row.name }}
+                </td>
+                <td>
+                    {{ row.description }}
+                </td>
+                <td>
+                    {{ row.date_release }}
+                </td>
+                <td>
+                    {{ row.date_revision }}
+                </td>
+                <td class="actions-cell">
+                    <div class="menu-container">
+                        <button class="menu-button">⋮</button>
+                        <div class="menu-options">
+                            <button (click)="actionBtn('edit', row)">✏️</button>
+                            <button (click)="actionBtn('delete', row)">🗑️</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
+    <!-- Contenedor del paginador y selector -->
+    <div class="pagination-container">
+        <!-- Selector de ítems por página -->
+        <div class="items-per-page">
+            <label for="itemsPerPage">Mostrar:</label>
+            <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange($event)">
+                <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+                    {{ option }}
+                </option>
+            </select>
+        </div>
 
-
-
+        <!-- Paginador -->
+        <div class="paginator">
+            <button (click)="previousPage()" [disabled]="currentPage === 1">
+                ◄ Anterior
+            </button>
+            <span>Página {{ currentPage }} de {{ totalPages }}</span>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+                Siguiente ►
+            </button>
+        </div>
+    </div>
+</section>

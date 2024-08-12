@@ -1,30 +1,12 @@
-<div class="content-component">
-    <div class="content-search">
-        <div class="content-inputSearch">
-            <input
-            id="searchInput" 
-            (blur)='searchProduct()' 
-            [(ngModel)]="valueSearch"
-            />
-
-        </div>
-        <div class="content-buttonAdd">
-            <button id="buttonYellow" (click)="addProduct()">
-                Agregar
-            </button>
-        </div>
+<section class="home">
+    <div class="body-home">
+  
+      <app-table
+        *ngIf="listAccounts.length > 0"
+        [columns]="columns"
+        [dataRow]="listAccounts"
+        (emmitAction)="emitTable($event)"
+      ></app-table>
     </div>
-    <div class="content-table">
-        <app-table [items]="dataProduct" pageSize='8' currentPage="1">
-            <app-column value="logo" header="Logo">
-                <ng-template #tableBodyTemplate let-column let-row="row">
-                    <img src="../../../assets/img/assets-1.png" alt="">
-                </ng-template>
-            </app-column>
-            <app-column value="name" header="Nombre de producto"></app-column>
-            <app-column value="description" header="descripcion"> </app-column>
-            <app-column value="date_release" header="Fecha de liberacion"></app-column>
-            <app-column value="date_revision" header="Fecha de restauracion"></app-column>
-        </app-table>
-    </div>
-</div>
+  </section>
+  

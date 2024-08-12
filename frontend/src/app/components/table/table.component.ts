@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ColumnComponent } from './column.component';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ColumnsTable } from './table.model';
+import { AccountsModel } from 'src/app/models/accounts.model';
+
 
 
 @Component({
@@ -7,60 +9,89 @@ import { ColumnComponent } from './column.component';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent   {
+export class TableComponent implements OnInit   {
 
-  /**
-   * Parametro de entrada para asignarle un encabezado al elemento tabla.
-   */
-  @Input() description = '';
+  @Output() emmitAction: EventEmitter<any> = new EventEmitter<any>();
+  @Input() columns: ColumnsTable[];
+  @Input() dataRow: AccountsModel[] = [];
+  public filterCharacters: string;
 
-  /**
-   * Parametro de entrada para asignarle un id al elemento th.
-   */
-  @Input() id = 'default-toggle' + '-' + 25;
+  public filteredProductos: any[] = [];
+  public paginatedProductos: any[] = [];
+  public itemsPerPageOptions: number[] = [5, 10, 20];
 
-  /**
-   * Arreglo inicial que permite la interracion con la tabla
-   * y su respectivo despliegue en el HTML.
-   */
-  @Input() public items: any[] | undefined;
+  public selectedItem?: any;
 
-  /**
-   * Variable que define el numero de datos a mostrar en la tabla.
-   */
-  @Input() public pageSize;
+  public itemsPerPage = 5;
+  public currentPage = 1;
+  public totalPages = 1;
 
-  /**
-   * Variable que define el numero de pagina en la tabla.
-   */
-  @Input() public currentPage;
+  constructor() {}
 
-  /**
-   * Variable inicializada ColumnComponent que da los valores de las columnas
-   * y las ordena en la tabla.
-   */
-  public columns: ColumnComponent[] = [];
-
-  /**
-   * Funcion que agrega las columnas a las tablas
-   */
-  public addColumn(column: ColumnComponent) {
-    this.columns.push(column);
+  ngOnInit(): void {
+    this.filteredProductos = this.dataRow;
+    this.calculateTotalPages();
   }
 
-  /**
-   * Funcion que recorre las columnas y ordena la respuesta
-   * junto con las filas.
-   */
-  public getData(col: any, row: any) {
-    let item = row;
-    col.forEach((index: string | number) => {
-      if (item[index] !== undefined && item[index] !== null) {
-        item = item[index];
-      } else {
-        item = '';
-      }
+  public calculateTotalPages() {
+    this.totalPages = Math.ceil(this.dataRow.length / this.itemsPerPage);
+  }
+
+  applyFilter() {
+    if (this.filterCharacters) {
+      this.filteredProductos = this.dataRow.filter((item) =>
+        Object.values(item).some((value) =>
+          value
+            .toString()
+            .toLowerCase()
+            .includes(this.filterCharacters.toLowerCase())
+        )
+      );
+    } else {
+      this.filteredProductos = this.dataRow;
+    }
+    this.currentPage = 1; // Reset to first page after filter
+    this.calculateTotalPages();
+  }
+
+  get paginatedItems() {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.filteredProductos.slice(start, end);
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  onItemsPerPageChange(event: Event) {
+    const select = event.target as HTMLSelectElement;
+    this.itemsPerPage = +select.value;
+    this.currentPage = 1; // Reset to first page
+    this.calculateTotalPages();
+  }
+
+  showTooltip(item: any) {
+    this.selectedItem = item;
+  }
+
+  closeTooltip() {
+    this.selectedItem = undefined;
+  }
+
+  public actionBtn(action: string, data?: AccountsModel) {
+    this.emmitAction.emit({
+      action: action,
+      data: data,
     });
-    return item;
   }
+
 }

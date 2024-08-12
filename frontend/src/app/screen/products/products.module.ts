@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
-import { TestRouting } from './products.routing';
+import { ProductRouting } from './products.routing';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'src/app/components/table/table.module';
 import { ModalService } from 'src/app/services/modal-services/modal.service';
 import { ProductService } from 'src/app/services/product-services/product.service';
+import { ToastModule } from 'src/app/components/toast/toast.module';
 
 const declarations = [
   ProductsComponent
@@ -13,9 +14,10 @@ const declarations = [
 
 const imports = [
   CommonModule,
-  TestRouting,
+  ProductRouting,
   FormsModule,
-  TableModule
+  TableModule,
+  ToastModule
 ]
 
 const ptoviders = [

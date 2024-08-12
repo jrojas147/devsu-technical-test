@@ -9,4 +9,5 @@ export interface AccountsModel {
 
 export interface AccountsListModel {
   data: AccountsModel[];
+  message?: string;
 }

@@ -8,7 +8,7 @@ import { FooterComponent } from './screen/shared/footer/footer.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from './components/table/table.module';
-import { PaginationModule } from './components/pagination/pagination.module';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from './components/modal/modal.module';
 import { RegisterProductModule } from './screen/register-product/register-product.module';
@@ -30,7 +30,6 @@ import { ProductsModule } from '@screen/products/products.module';
     AppRoutingModule,
     HttpClientModule,
     TableModule,
-    PaginationModule,
     ModalModule,
     RegisterProductModule,
     ProductsModule,
