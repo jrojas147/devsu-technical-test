@@ -75,3 +75,23 @@
         </div>
     </div>
 </section>
+
+
+<app-modal id="modal-confirm">
+    <div class="content-confirm">
+        <div class="textConfirmation">
+            <p>¿ Estas seguro de eliminar el producto {{nameSelected}}</p>
+        </div>
+        <div class="content-line">
+            <hr>
+        </div>
+        <div class="content-buttonModal">
+            <div class="buttonCancel">
+                <button class="secondary-button" (click)="closeModal()">Cancelar</button>
+            </div>
+            <div class="nuttonConfirm">
+                <button class="primary-button" (click)="deleteSelectedData()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</app-modal>

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ColumnsTable } from './table.model';
 import { AccountsModel } from 'src/app/models/accounts.model';
+import { ModalService } from 'src/app/services/modal-services/modal.service';
 
 
 
@@ -9,7 +10,7 @@ import { AccountsModel } from 'src/app/models/accounts.model';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnChanges   {
+export class TableComponent implements OnChanges {
 
   @Output() emmitAction: EventEmitter<any> = new EventEmitter<any>();
   @Input() columns: ColumnsTable[];
@@ -19,14 +20,16 @@ export class TableComponent implements OnChanges   {
   public filteredProductos: any[] = [];
   public paginatedProductos: any[] = [];
   public itemsPerPageOptions: number[] = [5, 10, 20];
-
   public selectedItem?: any;
-
   public itemsPerPage = 5;
   public currentPage = 1;
   public totalPages = 1;
+  public nameSelected: string
+  public dataSelected: any;
 
-  constructor() {}
+  constructor(
+    private modalService: ModalService) {
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['dataRow'] && changes['dataRow'].currentValue) {
@@ -89,12 +92,46 @@ export class TableComponent implements OnChanges   {
     this.selectedItem = undefined;
   }
 
+  /**
+   * metodo que envia parametros output hacia el componente padre que realiza el llamado
+   * @param action tipo de accion que se tiene editar o eliminar
+   * @param data valores de la fila que se edita o elimina
+   */
   public actionBtn(action: string, data?: AccountsModel) {
-    alert("confirmar")
     this.emmitAction.emit({
       action: action,
       data: data,
     });
+
+    if (action === 'delete') {
+      this.openModal(data);
+    }
   }
 
+  /**
+   * metodo que envia via output los datos a eliminar de la tabla
+   */
+  public deleteSelectedData() {
+    this.emmitAction.emit({
+      action: 'delete',
+      data: this.dataSelected,
+    });
+    this.closeModal();
+  }
+
+  /**
+   * Abre el modal de confirmacion de elimnar
+   */
+  public openModal(data: AccountsModel): void {
+    this.dataSelected = data;
+    this.nameSelected = data.name;
+    this.modalService.open('modal-confirm');
+  }
+
+  /**
+   * Cierra el modal para cancelar el elimiado de datos de la tabla
+   */
+  public closeModal(): void {
+    this.modalService.close('modal-confirm');
+  }
 }

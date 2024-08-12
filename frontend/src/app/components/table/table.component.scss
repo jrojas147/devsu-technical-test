@@ -1,27 +1,30 @@
 @import '../../../styles.scss';
 
 
-.content-headerTable{
+.content-headerTable {
   display: grid;
   grid-template-columns: 50% 50%;
-  .content-search{
+
+  .content-search {
     width: 25%;
   }
-  .content-buttonAdd{
+
+  .content-buttonAdd {
     text-align: end;
   }
 }
 
 .table-container {
-    background: #ffff;
-    padding: 10px;
+  background: #ffff;
+  padding: 10px;
+
   table {
     width: 100%;
     border-collapse: collapse;
     font-size: small;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   th,
   td {
     border-bottom: 1px solid #ddd;
@@ -29,38 +32,38 @@
     text-align: left;
 
     .container-img {
-      width:36px;
-      height:36px;
-  
+      width: 36px;
+      height: 36px;
+
       img {
         object-fit: cover;
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
       }
     }
   }
-  
+
   th {
     background-color: #f9fafc;
     color: #454545;
     font-size: 12px;
   }
-  
+
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
+
   tr:hover {
     background-color: #f1f1f1;
   }
-  
+
   /* Estilo de las celdas de acciones */
   .actions-cell {
     position: relative;
     text-align: center;
   }
-  
+
   /* Contenedor del menú de acciones */
   .menu-container {
     position: relative;
@@ -69,20 +72,20 @@
 
   /* Botón del menú */
   .menu-button {
-      border: none;
-      border-radius: 4px;
-      color: #454545;
-      cursor: pointer;
-      font-size: 18px;
-      line-height: 1;
-      padding: 8px;
-      transition: background 0.3s ease;
-    }
+    border: none;
+    border-radius: 4px;
+    color: #454545;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 8px;
+    transition: background 0.3s ease;
+  }
 
   .menu-button:hover {
     background: #F5DF66;
   }
-  
+
   /* Menú de opciones flotante */
   .menu-options {
     display: none;
@@ -96,11 +99,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
-  
+
   .menu-container:hover .menu-options {
     display: block;
   }
-  
+
   /* Botones dentro del menú */
   .menu-options button {
     display: block;
@@ -114,32 +117,32 @@
     transition: background 0.3s ease;
     border-radius: 4px;
   }
-  
+
   .menu-options button:hover {
     background-color: #f0f0f0;
   }
-  
+
   /* Contenedor del paginador y selector */
   .pagination-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin: 20px 0;
     font-family: "Arial", sans-serif;
   }
-  
+
   /* Estilo del selector de ítems por página */
   .items-per-page {
     display: flex;
     align-items: center;
   }
-  
+
   .items-per-page label {
     margin-right: 10px;
     font-size: 14px;
     color: #333;
   }
-  
+
   .items-per-page select {
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -148,12 +151,12 @@
     background-color: white;
     cursor: pointer;
   }
-  
+
   .paginator {
     display: flex;
     align-items: center;
   }
-  
+
 
   .paginator button {
     background-color: #F5DF66;
@@ -166,17 +169,17 @@
     font-size: 14px;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
+
   .paginator button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
   }
-  
+
   .paginator button:hover:not(:disabled) {
     background-color: #45a049;
     transform: scale(1.05);
   }
-  
+
   /* Estilo del texto del paginador */
   .paginator span {
     margin: 0 10px;
@@ -184,11 +187,24 @@
     color: #333;
   }
 
-  .empty-data{
+  .empty-data {
     text-align: center;
     padding: 15px 0;
     color: #66696A;
   }
-  
+
+}
+
+.content-confirm {
+  .textConfirmation {
+    padding: 2px;
+    height: 85px;
   }
-  
+  .content-line {
+    padding: 2px;
+  }
+  .content-buttonModal {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+}

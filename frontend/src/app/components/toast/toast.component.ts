@@ -14,17 +14,17 @@ import { ToastService } from './toast.service';
       <div *ngIf="toastModel.type" class="img flexbox-center">
         <img
           *ngIf="toastModel.type == 'error'"
-          src="assets/icons/error.svg"
+          src="assets/img/icons/error.svg"
           width="70"
         />
         <img
           *ngIf="toastModel.type == 'warning'"
-          src="assets/icons/warning.svg"
+          src="assets/img/icons/warning.svg"
           width="70"
         />
         <img
           *ngIf="toastModel.type == 'info'"
-          src="assets/icons/info.svg"
+          src="assets/img/icons/info.svg"
           width="70"
         />
       </div>
@@ -33,7 +33,7 @@ import { ToastService } from './toast.service';
       <div class="message">{{ toastModel.message }}</div>
 
       <div class="btn-close flexbox-center">
-        <img (click)="close()" src="assets/icons/close.svg" style="margin-top:4px" width="25" />
+        <img (click)="close()" src="assets/img/icons/close.svg" style="margin-top:4px" width="25" />
       </div>
     </div>
   </div>`,
