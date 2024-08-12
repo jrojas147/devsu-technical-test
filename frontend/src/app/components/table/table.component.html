@@ -1,11 +1,11 @@
-<div class="flex-row">
-    <div class="col-2">
+<div class="content-headerTable">
+    <div class="content-search">
         <div class="form-controls">
             <input id="filterCharacters" name="filterCharacters" placeholder="Search..." [(ngModel)]="filterCharacters"
                 type="text" (ngModelChange)="applyFilter()" />
         </div>
     </div>
-    <div class="col-2 buton-add">
+    <div class="content-buttonAdd">
         <button class="primary-button" style="margin: 0;" (click)="actionBtn('add')">
             Agregar
         </button>
@@ -16,7 +16,6 @@
         <thead>
             <tr>
                 <th *ngFor="let column of columns">{{ column.title }}</th>
-
                 <th></th>
             </tr>
         </thead>
@@ -24,7 +23,7 @@
             <tr *ngFor="let row of paginatedItems">
                 <td>
                     <div class="container-img">
-                        <img src="assets/img/perfil.png" class="img-fluid height" alt="" />
+                        <img src="../../../assets/img/img/" class="img-fluid height" alt="" />
                     </div>
                 </td>
                 <td>

@@ -90,6 +90,7 @@ export class TableComponent implements OnChanges   {
   }
 
   public actionBtn(action: string, data?: AccountsModel) {
+    alert("confirmar")
     this.emmitAction.emit({
       action: action,
       data: data,

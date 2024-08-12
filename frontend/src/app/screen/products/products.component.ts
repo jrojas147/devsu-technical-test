@@ -55,16 +55,16 @@ export class ProductsComponent implements OnInit {
   }
 
   public addRegistry() {
-    this.router.navigateByUrl('/registry');
+    this.router.navigateByUrl('/registerProduct');
   }
 
   public emitTable(event: any) {
     if (event.action === 'add') {
-      this.router.navigateByUrl('/registry');
+      this.router.navigateByUrl('/registerProduct');
     }
 
     if (event.action === 'edit') {
-      this.router.navigateByUrl('/registry/' + event.data.id);
+      this.router.navigateByUrl('/registerProduct/' + event.data.id);
     }
 
     if (event.action === 'delete') {

@@ -15,7 +15,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-
+//Botones
+.primary-button {
+  background: #F5DF66;
+}
 
 
 //Boton amarillo
@@ -42,7 +45,7 @@ body {
 
 
 
-//Botones
+
 
 button {
   border: none;
@@ -65,9 +68,6 @@ button:disabled {
   margin: 9px;
 }
 
-.primary-button {
-  background: #e9e971;
-}
 
 .secondary-button {
   background: #ecedf3
@@ -87,42 +87,7 @@ button:disabled {
 
 
 
-//input
-input[type="text"],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #979797;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
 
-input:disabled {
-  background-color: #f6f6f6;
-  border: 1px solid #ccc;
-}
-
-.error-field {
-  color: red;
-  font-size: 12px;
-  margin: 9px 0;
-}
-
-.ng-untouched .ng-pristine .ng-invalid {
-  border: 1px solid red;
-}
-
-.ng-pristine .ng-invalid .ng-touched {
-  border: 1px solid white;
-}
-
-input:invalid {
-  background-color: ivory;
-  border: none;
-  outline: 2px solid red;
-  border-radius: 5px;
-}
 
 
 ////////////////////

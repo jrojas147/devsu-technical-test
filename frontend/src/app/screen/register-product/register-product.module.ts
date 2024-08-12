@@ -4,6 +4,7 @@ import { RegisterProductComponent } from './register-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from 'src/app/services/product-services/product.service';
 import { RegisterRouting } from './register-product.routing';
+import { ToastModule } from 'src/app/components/toast/toast.module';
 
 
 const declarations = [
@@ -13,7 +14,8 @@ const imports = [
   CommonModule,
   FormsModule,
   ReactiveFormsModule,
-  RegisterRouting
+  RegisterRouting,
+  ToastModule
 ]
 const providers = [
   ProductService

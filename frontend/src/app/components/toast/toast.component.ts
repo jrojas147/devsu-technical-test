@@ -33,10 +33,11 @@ import { ToastService } from './toast.service';
       <div class="message">{{ toastModel.message }}</div>
 
       <div class="btn-close flexbox-center">
-        <img (click)="close()" src="assets/icons/close.svg" width="25" />
+        <img (click)="close()" src="assets/icons/close.svg" style="margin-top:4px" width="25" />
       </div>
     </div>
   </div>`,
+    styleUrls: ['./toast.component.scss']
 })
 export class ToastComponent implements OnDestroy {
   public toastModel: ToastModel;

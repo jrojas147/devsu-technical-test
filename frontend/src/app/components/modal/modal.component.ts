@@ -9,10 +9,8 @@ import { ModalService } from 'src/app/services/modal-services/modal.service';
 })
 export class ModalComponent implements OnInit {
 
-
-  /* Id del modal que quiera abrir */
   @Input() id: string;
-  /* Elemento del HTML */
+
   private element: any;
 
   constructor(
@@ -29,21 +27,16 @@ export class ModalComponent implements OnInit {
     this.modalService.add(this);
   }
 
-  /* Remover el modal cuando el servicio es destruido */
   ngOnDestroy(): void {
     this.modalService.remove(this.id);
     this.element.remove();
   }
 
-  /* Abrir el modal */
   open(): void {
     this.element.style.display = 'block';
   }
 
-  /* Cerrar el modal */
   close(): void {
     this.element.style.display = 'none';
   }
-
-
 }

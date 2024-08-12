@@ -1,38 +1,4 @@
 @import '../../../styles.scss';
 
 
-.content-component{
-    background-color: #F4F6FA;
-}
 
-.content-search{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    align-content: flex-end;
-    height: 120px;
-
-    .content-inputSearch{
-        #searchInput{
-            margin: 0 0 10px 0;
-            border: 1px solid #DCDCDE;
-            border-radius: 2px;
-            height: 25px;
-        }
-    }
-    .content-buttonAdd{
-        margin: 0 0 5px 0 ;
-        text-align: end;
-
-
-    }
-}
-
-
-.content-table{
-    background-color: white;
-    padding: 20px;
-}
-
-.button-addProduct{
-    display: flex;
-}

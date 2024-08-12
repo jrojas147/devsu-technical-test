@@ -5,16 +5,17 @@ import { ModalService } from 'src/app/services/modal-services/modal.service';
 import { AccountsListModel, AccountsModel } from 'src/app/models/accounts.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product-services/product.service';
+import { ToastService } from 'src/app/components/toast/toast.service';
 
 @Component({
   selector: 'app-register-product',
   templateUrl: './register-product.component.html',
   styleUrls: ['./register-product.component.scss']
 })
-export class RegisterProductComponent  {
+export class RegisterProductComponent implements OnInit {
 
   public idAccount: string | null;
-  public listAccounts: AccountsListModel[] = [];
+  public listAccounts: AccountsModel[] = [];
   public account?: AccountsModel;
   public formAccounts: FormGroup = new FormGroup({});
   public existAccount: boolean = false;
@@ -23,7 +24,8 @@ export class RegisterProductComponent  {
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) {
     this.idAccount = this.activatedRoute.snapshot.paramMap.get('id');
   }
@@ -42,7 +44,7 @@ export class RegisterProductComponent  {
     if (this.idAccount) {
       this.productService
         .getAccountsById(this.idAccount)
-        .subscribe((response: any) => {
+        ?.subscribe((response: any) => {
           this.account = response;
 
           this.setControlValues(this.account);
@@ -63,7 +65,7 @@ export class RegisterProductComponent  {
       Validators.required,
     ];
     groupControl['name'] = [null, Validators.required];
-    groupControl['description'] = [null, Validators.required];
+    groupControl['description'] = [null, [Validators.minLength(6), Validators.required]];
     groupControl['logo'] = [null];
     groupControl['date_release'] = [null, Validators.required];
     groupControl['date_revision'] = [
@@ -93,12 +95,24 @@ export class RegisterProductComponent  {
     const dataForm = this.formAccounts.getRawValue();
 
     if (this.idAccount) {
-      this.productService.putAccounts(dataForm).subscribe((response: any) => {
-        this.listAccounts = response;
+      this.productService.putAccounts(dataForm)?.subscribe((response: AccountsListModel) => {
+        this.listAccounts = response.data;
+        this.toastService.show('Actualizado', response.message || '');
+
+        setTimeout(() => {
+          this.backUrl();
+        }, 1000);
+
       });
     } else {
-      this.productService.postAccounts(dataForm).subscribe((response: any) => {
-        this.listAccounts = response;
+      this.productService.postAccounts(dataForm)?.subscribe((response: AccountsListModel) => {
+        this.listAccounts = response.data;
+
+        this.toastService.show('Exitoso', response.message || '');
+
+        setTimeout(() => {
+          this.backUrl();
+        }, 1000);
       });
     }
   }
