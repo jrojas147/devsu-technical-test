@@ -18,6 +18,7 @@ export class ProdutsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router) {
+      console.log("entrando a productos")
   }
 
    ngOnInit(): void {
